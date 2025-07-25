@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sociaa V2's Company</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: white;
+      color: #b30000;
+      text-align: center;
+    }
+
+    header {
+      position: fixed;
+      top: 0px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      z-index: 999;
+      backdrop-filter: blur(0px);
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #b30000;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #b30000;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 10px 16px;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #b30000;
+      color: white;
+      border-color: #b30000;
+      transform: scale(1.1);
+    }
+
+    .hero {
+      margin-top: -10px;
+      width: 100%;
+      height: 120vh;
+      background: url('banner25.jpg') no-repeat center center / cover;
+      background-attachment: absolute;
+      animation: fadeIn 2s ease-in-out;
+      border-bottom: 3px solid #b30000;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      padding: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      animation: slideUp 1s ease-out forwards;
+    }
+
+    .hero-content p {
+      font-size: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+      animation: slideUp 1s ease-out forwards;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(1.05); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    main {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 60px;
+      padding: 30px;
+      border: 2px solid #b30000;
+      border-radius: 12px;
+      background-color: #fff5f5;
+      transition: transform 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    section:hover {
+      transform: scale(1.03);
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      color: #b30000;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background-color: #b30000;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .store-section {
+      margin: 0 auto 60px auto;
+      width: 300px;
+      padding: 20px;
+      border: 2px solid #b30000;
+      border-radius: 12px;
+      background-color: #fff5f5;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .store-section:hover {
+      transform: scale(1.05);
+      background-color: #ffe0e0;
+    }
+
+    .store-section a {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #b30000;
+      text-decoration: none;
+      transition: 0.3s ease;
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 8px;
+    }
+
+    .store-section a:hover {
+      color: white;
+      background-color: #b30000;
+    }
+
+    .leader {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .leader-card {
+      width: 350px;
+      background: white;
+      border: 3px solid #b30000;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s;
+      font-size: 1.1rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .leader-card:hover {
+      transform: scale(1.05);
+      background-color: #fff0f0;
+    }
+
+    .leader-card img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #b30000;
+      margin-bottom: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .members {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .member-card {
+      flex: 1 1 calc(25% - 20px);
+      max-width: 250px;
+      background: white;
+      border: 2px solid #b30000;
+      border-radius: 12px;
+      text-align: center;
+      padding: 20px;
+      transition: all 0.3s;
+      font-size: 1rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .member-card:hover {
+      transform: scale(1.05);
+      background-color: #fff0f0;
+    }
+
+    .member-card img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #b30000;
+      margin-bottom: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .description {
+      margin-top: 10px;
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .contact-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      border: 3px solid #b30000;
+      padding: 30px;
+      border-radius: 15px;
+      background-color: #fff0f0;
+      margin-top: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-item {
+      flex: 1 1 200px;
+      min-width: 200px;
+      max-width: 250px;
+      background-color: white;
+      border: 2px solid #b30000;
+      padding: 20px;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      color: #333;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-item:hover {
+      transform: scale(1.05);
+      background-color: #ffecec;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #b30000;
+      color: white;
+      border-top: 3px solid #800000;
+      margin-top: 60px;
+    }
+
+    section, .store-section, .leader-card, .member-card, .contact-box {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    section.reveal,
+    .store-section.reveal,
+    .leader-card.reveal,
+    .member-card.reveal,
+    .contact-box.reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 992px) {
+      .member-card {
+        flex: 1 1 calc(33% - 20px);
+      }
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      .hero-content p {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+      }
+      .title {
+        font-size: 1.5rem;
+      }
+      nav a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+      .hero {
+        height: 60vh;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      .member-card {
+        flex: 1 1 calc(50% - 20px);
+      }
+      .leader-card {
+        width: 300px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      nav {
+        gap: 10px;
+      }
+      .hero {
+        height: 50vh;
+      }
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+      .member-card {
+        flex: 1 1 100%;
+        max-width: 280px;
+      }
+      .contact-item {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="title">
+      Sociaa V2's Company
+	  <img src="banner26.jpg" alt="VS" style="height: 50px; border: 1px solid; border-radius: 40px;">
+    </div>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#team">Our Team</a>
+      <a href="#collab">Collab</a>
+    </nav>
+  </header>
+
+  <div class="hero" id="hero">
+    <div class="hero-content">
+    </div>	
+  </div>
+
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p>Welcome to Sociaa V2's official company website. We're a team of passionate creators, innovators, and collaborators working on exciting digital projects. We are creating more opportunity so that all of the students that doing their best and hardworking. So I and my Team created this website to help, not only for our grade at Filipino sa Piling Larang, so I think, I decide that this website have a large impact of all the students here at Oriental Mindoro National Highschool, we can help them to make the hard become easy. Beacause of the Technology now I want to improve our school by help of this company <mark>Sociaa V2</mark> and also we are open for collaboration. If you are willing to buy our product and if you want to add your product on our website just review our website first and you can see a button "Visit our Store" and message us for more information. So let's help each other collab with me and be part of the Sociaa V2  Company.</p>
+    </section>
+
+    <div class="store-section">
+      <a href="pilinglarangwebstore.html">Visit Our Store</a>
+    </div>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-box">
+        <div class="contact-item"><strong>Facebook:</strong><br> Sociaa V2's Official</div>
+        <div class="contact-item"><strong>Email:</strong><br> sociaav2@gmail.com</div>
+        <div class="contact-item"><strong>Phone:</strong><br> 09128842378</div>
+        <div class="contact-item"><strong>Discord:</strong><br> vincentvittohtml</div>
+      </div>
+    </section>
+
+    <section id="team">
+      <h2>Our Team</h2>
+              <div class="leader-card" style="margin-left: 375px; margin-bottom: 25px; margin-top: 20px;">
+          <img src="biopage3.jpg" alt="Company leader Jhon Vincent Vitto">
+          <h3>CEO</h3>
+          <p class="description">Name: Jhon Vincent Vitto<br>Role: Backend Developer, Frontend Developer<br>Specialty: System Design & Oversight<br>Idea: Create more Opportunity<br>Responsibility: To help many students<br>Experties: Speaker and Promoter</p>
+        </div>
+      </div>
+
+      <div class="members">
+        <div class="member-card">
+          <img src="banner19.jpg" alt="Team member Keziah Brillo, Designer">
+          <p><strong>Keziah Brillo</strong></p>
+          <p class="description">Role: Designer<br>Expertise: Creating Flyers, Leaflets, Description</p>
+        </div>
+        <div class="member-card">
+          <img src="banner22.jpg" alt="Ced Mata">
+          <p><strong>Ced Mata</strong></p>
+          <p class="description">Role: Product maker<br>Expertise: Cleanliness</p>
+        </div>
+        <div class="member-card">
+          <img src="banner23.jpg" alt="Albert Caibal">
+          <p><strong>Albert Caibal</strong></p>
+          <p class="description">Role: Product maker<br>Expertise: Packaging</p>
+        </div>
+        <div class="member-card">
+          <img src="banner20.jpg" alt="Mcramiel Origenes">
+          <p><strong>Mcramiel Origenes</strong></p>
+          <p class="description">Role: Product maker<br>Expertise: Promoter</p>
+        </div>
+        <div class="member-card">
+          <img src="banner21.jpg" alt="Jarel Maranan">
+          <p><strong>Jarel Maranan</strong></p>
+          <p class="description">Role: Product maker<br>Expertise: Cleanliness</p>
+        </div>
+        <div class="member-card">
+          <img src="banner18.jpg" alt="Jarel Maranan">
+          <p><strong>Cyra Jimenez</strong></p>
+          <p class="description">Role: Product maker<br>Expertise: Cleanliness</p>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="collab">
+      <h2>Collab with Us</h2>
+      <p>If you want to work with us or add your product to our site,<br> feel free to reach out using the form below!</p>
+      <form class="contact-box" style="flex-direction: column; align-items: center; max-width: 600px; margin: 0 auto; margin-top: 30px;">
+        <textarea name="name" placeholder="Enter your name" required style="width: 100%; padding: 15px; border: 2px solid #b30000; border-radius: 12px; font-size: 1.1rem; margin-bottom: 20px; resize: none; font-family: 'Segoe UI', sans-serif;"></textarea>
+        <textarea name="message" placeholder="Enter your message" required rows="5" style="width: 100%; padding: 15px; border: 2px solid #b30000; border-radius: 12px; font-size: 1.1rem; margin-bottom: 20px; resize: none; font-family: 'Segoe UI', sans-serif;"></textarea>
+        <a href="#" onclick="submitCollabForm()" style="font-size: 1.3rem; font-weight: bold; color: #b30000; text-decoration: none; padding: 10px 20px; border-radius: 8px; border: 2px solid #b30000; transition: 0.3s ease;">
+          Submit
+        </a>
+      </form>
+    </section>
+    
+
+  </main>
+
+  <footer>
+    &copy; 2025 Sociaa V2 Company. Filipino sa Piling Larang
+  </footer>
+
+  
+  <script>
+    const revealElements = document.querySelectorAll(
+      'section, .store-section, .leader-card, .member-card, .contact-box'
+    );
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('reveal');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => observer.observe(el));
+
+    
+    function submitCollabForm() {
+      const name = document.querySelector('textarea[name="name"]').value.trim();
+      const message = document.querySelector('textarea[name="message"]').value.trim();
+
+      if (!name || !message) {
+        alert("Please fill in both your name and message.");
+        return;
+      }
+
+      alert(`Thank you, ${name}! Your message has been sent.\n\n"${message}"`);
+
+      document.querySelector('textarea[name="name"]').value = '';
+      document.querySelector('textarea[name="message"]').value = '';
+    }
+  </script>
+
+</body>
+</html>
+
+
+</body>
+</html>
